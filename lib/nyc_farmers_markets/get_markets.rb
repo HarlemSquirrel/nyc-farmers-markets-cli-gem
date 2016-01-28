@@ -1,6 +1,3 @@
-#require 'net/http'
-#require 'open-uri'
-#class GetMarkets
 class NYCFarmersMarkets::GetMarkets
   URL = "https://data.cityofnewyork.us/resource/cw3p-q2v6.json"
 
@@ -18,6 +15,3 @@ class NYCFarmersMarkets::GetMarkets
     end
   end
 end
-
-#markets = GetMarkets.new.get_markets
-#puts markets
