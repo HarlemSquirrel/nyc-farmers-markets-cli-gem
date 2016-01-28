@@ -1,0 +1,9 @@
+#!/user/bin/env ruby
+
+require_relative '../lib/nyc_farmers_markets'
+
+# call
+#NYCFarmersMarkets::CLI.new.call
+
+NYCFarmersMarkets::GetMarkets.new.make_markets
+binding.pry

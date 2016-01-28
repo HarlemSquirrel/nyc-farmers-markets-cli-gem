@@ -1,0 +1,3 @@
+class NYCFarmersMarkets::CLI
+
+end
