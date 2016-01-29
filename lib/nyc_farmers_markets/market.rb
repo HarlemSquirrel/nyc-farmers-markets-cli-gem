@@ -52,7 +52,6 @@ class NYCFarmersMarkets::Market
   end
 
   def self.find_by_borough(b)
-    #binding.pry
     self.all.select do |market|
       market if market.borough != nil && market.borough.downcase == b.downcase
     end

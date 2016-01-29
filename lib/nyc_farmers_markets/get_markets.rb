@@ -8,10 +8,8 @@ class NYCFarmersMarkets::GetMarkets
   end
 
   def make_markets
-    #binding.pry
     get_markets.each do |market_hash|
       NYCFarmersMarkets::Market.create_from_hash(market_hash)
-      #Market.create_from_hash(market_hash)
     end
   end
 end
