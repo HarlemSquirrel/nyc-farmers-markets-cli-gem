@@ -1,7 +1,8 @@
 # NYC Farmers Markets
 A Ruby CLI for the [NYC Farmers Markets API](https://dev.socrata.com/foundry/data.cityofnewyork.us/cw3p-q2v6).
+Check it the [RubyGems page](https://rubygems.org/gems/nyc-farmers-markets) for this gem. 
 
-# Install using RubyGems
+# Install Using RubyGems
 ```
 gem install nyc-farmers-markets
 ```
