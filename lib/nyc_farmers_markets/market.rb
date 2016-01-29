@@ -29,10 +29,9 @@ class NYCFarmersMarkets::Market
       state: h["facilitystate"],
       zipcode: h["facilityzipcode"]
     )
-    #binding.pry
+
     market.set_website_from_additional_info
     market.remove_html
-    #binding.pry
     market.save
   end
 
