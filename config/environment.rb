@@ -1,6 +1,7 @@
 require 'colorize'
 require 'json'
-require 'open-uri'
+#require 'open-uri'
+require 'open-uri/cached'
 require 'pry'
 
 
