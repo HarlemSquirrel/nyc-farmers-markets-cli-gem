@@ -4,22 +4,16 @@ class NYCFarmersMarkets::CLI
     NYCFarmersMarkets::GetMarkets.new.make_markets
     vesta = "\u26B6".encode('utf-8')
     flower = "\u2698".encode('utf-8')
-    puts "\n #{vesta} Welcome to the Farmers Markets of NYC #{vesta} ".green.underline
-    15.times { print "#{flower}  ".light_blue }
-    puts ""
+    puts "\n\t #{vesta} Welcome to the Farmers Markets of NYC #{vesta} ".green.underline
+    print "\t"; 15.times { print "#{flower}  ".light_blue }; puts ""
 
     start
   end
 
   def start
-    hand = "\u261E".encode('utf-8')
     loop do
-      puts "\nWhat would you like to do?"
-      puts " #{hand} list boroughs: See a list of boroughs with Farmers Markets"
-      puts " #{hand} [borough name]: See all markets in this borough"
-      puts " #{hand} list zip codes: See a list of zip codes"
-      puts " #{hand} [zip code]: See all markets in this zip code"
-      puts " #{hand} exit: Say good-bye"
+      print "\nWhat would you like to do (type help for more info)? "
+
       input = gets.chomp.downcase
 
       case input
@@ -32,6 +26,8 @@ class NYCFarmersMarkets::CLI
         puts market_set.list_zipcodes.join(" - ")
       when *market_set.list_zipcodes
         print_by_zipcode(input)
+      when "help"
+        help
       when "exit"
         puts "See you next time!"
         break
@@ -68,13 +64,23 @@ class NYCFarmersMarkets::CLI
   end
 
   def list_boroughs
-    puts ""
-    puts "\tBoroughs and their number of Farmers Markets".green
-    #puts market_set.list_boroughs.join(" - ")
-    market_set.list_boroughs.each do |b|
-      print "#{b}(#{market_set.num_markets_in_borough(b)}), "
+    puts "\n\tBoroughs and their number of Farmers Markets".green
+    printables = market_set.list_boroughs.collect do |b|
+      "#{b}(#{market_set.num_markets_in_borough(b)})"
     end
-    puts ""
+    puts printables.join(", ")
+  end
+
+  def help
+    hand = "\u261E".encode('utf-8')
+    keyboard = "\u2328".encode('utf-8')
+    puts "\n #{keyboard} These are the available commands #{keyboard}".light_blue.underline
+    puts " #{hand} list boroughs - See a list of boroughs with Farmers Markets"
+    puts " #{hand} [borough name] - See all markets in this borough"
+    puts " #{hand} list zip codes - See a list of zip codes"
+    puts " #{hand} [zip code] - See all markets in this zip code"
+    puts " #{hand} help - See this helpful list of commands!"
+    puts " #{hand} exit - Say good-bye"
   end
 
   def market_set
