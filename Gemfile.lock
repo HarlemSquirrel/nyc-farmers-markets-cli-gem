@@ -1,0 +1,17 @@
+PATH
+  remote: .
+  specs:
+    nyc-farmers-markets (0.0.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  nyc-farmers-markets!
+
+BUNDLED WITH
+   1.11.2

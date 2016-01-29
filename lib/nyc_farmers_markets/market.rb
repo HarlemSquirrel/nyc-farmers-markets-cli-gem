@@ -29,9 +29,10 @@ class NYCFarmersMarkets::Market
       state: h["facilitystate"],
       zipcode: h["facilityzipcode"]
     )
-
+    #binding.pry
     market.set_website_from_additional_info
-
+    market.remove_html
+    #binding.pry
     market.save
   end
 
@@ -42,8 +43,17 @@ class NYCFarmersMarkets::Market
     end
   end
 
+  def remove_html
+    if @additional_info != nil && @additional_info.include?("<")
+      x = @additional_info.index("<")
+      y = @additional_info.length - 1
+      @additional_info.slice!(x..y)
+    end
+
+  end
+
   def self.find_by_borough(b)
-    binding.pry
+    #binding.pry
     self.all.select do |market|
       market if market.borough != nil && market.borough.downcase == b.downcase
     end
@@ -61,5 +71,9 @@ class NYCFarmersMarkets::Market
 
   def self.list_zipcodes
     self.all.collect { |market| market.zipcode }.compact.uniq.sort
+  end
+
+  def self.num_markets_in_borough(b)
+    self.find_by_borough(b).count
   end
 end
