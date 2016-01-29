@@ -1,4 +1,4 @@
-# nyc-farmers-markets-cli-gem
+# NYC Farmers Markets
 A Ruby CLI for the [NYC Farmers Markets API](https://dev.socrata.com/foundry/data.cityofnewyork.us/cw3p-q2v6).
 
 # Build and install the gem
@@ -27,11 +27,11 @@ $ nyc-farmers-markets
 What would you like to do (type help for more info)? help
 
  ⌨ These are the available commands ⌨
-☞list all	-See a list of all Farmers Markets
+☞list all	      -See a list of all Farmers Markets
 ☞list boroughs  -See a list of boroughs with Farmers Markets
 ☞[borough name] -See all markets in this borough
 ☞list zip codes -See a list of zip codes
-☞[zip code]	-See all markets in this zip code
-☞help		-See this helpful list of commands!
-☞exit		-Say good-bye
+☞[zip code]	    -See all markets in this zip code
+☞help		        -See this helpful list of commands!
+☞exit		        -Say good-bye
 ```
