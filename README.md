@@ -22,7 +22,7 @@ Install the gem
 gem install ./nyc-farmers-markets-*.gem
 ```
 
-# Command Line Interface
+# Command-Line Interface
 This gem will give you the `nyc-farmers-markets` executable that you can run in your terminal.
 ```
 $ nyc-farmers-markets
