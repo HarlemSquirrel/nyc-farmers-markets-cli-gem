@@ -2,9 +2,11 @@ class NYCFarmersMarkets::GetMarkets
   URL = "https://data.cityofnewyork.us/resource/cw3p-q2v6.json"
 
   def get_markets
-    uri = URI.parse(URL)
-    response = Net::HTTP.get_response(uri)
-    markets = JSON.parse(response.body)
+    #uri = URI.parse(URL)
+    #response = Net::HTTP.get_response(uri)
+    #markets = JSON.parse(response.body)
+    content = open(URL).read
+    markets = JSON.parse(content)
   end
 
   def make_markets

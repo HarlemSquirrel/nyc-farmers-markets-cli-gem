@@ -1,6 +1,5 @@
 require 'colorize'
 require 'json'
-require 'net/http'
 require 'open-uri'
 require 'pry'
 
