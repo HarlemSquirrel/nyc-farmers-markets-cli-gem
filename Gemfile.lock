@@ -1,7 +1,6 @@
 PATH
   remote: .
   specs:
-    nyc-farmers-markets (0.0.0)
 
 GEM
   remote: https://rubygems.org/
