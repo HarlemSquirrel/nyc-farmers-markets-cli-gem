@@ -17,6 +17,8 @@ class NYCFarmersMarkets::CLI
       input = gets.chomp.downcase
 
       case input
+      when "list all"
+        list_all
       when "list boroughs"
         #puts market_set.list_boroughs.join(" - ")
         list_boroughs
@@ -38,49 +40,51 @@ class NYCFarmersMarkets::CLI
   end
 
   def print_by_borough(borough)
-    # print all the info for each market in the specified borough
-    #binding.pry
-    markets = market_set.find_by_borough(borough)
-    puts ""
-    markets.each do |market|
-      puts "#{market.name}".green
-      puts "#{market.street_address}, #{market.borough}, #{market.zipcode}"
-      puts "#{market.additional_info}"
-      puts "#{market.website}" unless market.website == nil
-      puts ""
+    market_set.find_by_borough(borough).each do |m|
+      puts "\n#{m.name}".green
+      puts "#{m.street_address}, #{m.borough}, #{m.zipcode}"
+      puts "#{m.additional_info}" unless m.additional_info == nil
+      puts "#{m.website}" unless m.website == nil
     end
   end
 
   def print_by_zipcode(zipcode)
-    markets = market_set.find_by_zipcode(zipcode)
-    puts ""
-    markets.each do |market|
-      puts "#{market.name}".green
-      puts "#{market.street_address}, #{market.borough}, #{market.zipcode}"
-      puts "#{market.additional_info}"
-      puts "#{market.website}" unless market.website == nil
-      puts ""
+    market_set.find_by_zipcode(zipcode).each do |m|
+      puts "\n#{m.name}".green
+      puts "#{m.street_address}, #{m.borough}, #{m.zipcode}"
+      puts "#{m.additional_info}" unless m.additional_info == nil
+      puts "#{m.website}" unless m.website == nil
+    end
+  end
+
+  def list_all
+    market_set.all.each do |m|
+      puts "\n#{m.name}".green
+      puts m.street_address == nil ? "-address not available-" : "#{m.street_address}, #{m.borough}, #{m.zipcode}"
+      puts "#{m.additional_info}" unless m.additional_info == nil
+      puts "#{m.website}" unless m.website == nil
     end
   end
 
   def list_boroughs
-    puts "\n\tBoroughs and their number of Farmers Markets".green
-    printables = market_set.list_boroughs.collect do |b|
+    puts "\n\tBoroughs and Their Number of Farmers Markets".green
+    boroughs_with_num_markets = market_set.list_boroughs.collect do |b|
       "#{b}(#{market_set.num_markets_in_borough(b)})"
     end
-    puts printables.join(", ")
+    puts boroughs_with_num_markets.join(", ")
   end
 
   def help
     hand = "\u261E".encode('utf-8')
     keyboard = "\u2328".encode('utf-8')
     puts "\n #{keyboard} These are the available commands #{keyboard}".light_blue.underline
-    puts " #{hand} list boroughs - See a list of boroughs with Farmers Markets"
-    puts " #{hand} [borough name] - See all markets in this borough"
-    puts " #{hand} list zip codes - See a list of zip codes"
-    puts " #{hand} [zip code] - See all markets in this zip code"
-    puts " #{hand} help - See this helpful list of commands!"
-    puts " #{hand} exit - Say good-bye"
+    puts "#{hand}list all\t-See a list of all Farmers Markets"
+    puts "#{hand}list boroughs  -See a list of boroughs with Farmers Markets"
+    puts "#{hand}[borough name] -See all markets in this borough"
+    puts "#{hand}list zip codes -See a list of zip codes"
+    puts "#{hand}[zip code]\t-See all markets in this zip code"
+    puts "#{hand}help\t\t-See this helpful list of commands!"
+    puts "#{hand}exit\t\t-Say good-bye"
   end
 
   def market_set
