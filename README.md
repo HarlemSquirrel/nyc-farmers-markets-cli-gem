@@ -70,3 +70,9 @@ What would you like to do (type help for more info)? help
 ☞help		        -See this helpful list of commands!
 ☞exit		        -Say good-bye
 ```
+
+# Tests
+There is an RSpec test suite you can run.
+```
+rspec
+```

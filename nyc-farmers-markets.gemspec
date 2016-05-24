@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'nyc-farmers-markets'
-  s.version     = '1.0.1'
+  s.version     = '1.0.2
   s.date        = '2016-05-24'
   s.summary     = "Wrapper and CLI the NYC Farmers Markets API"
   s.description = "A Ruby gem for the NYC Farmers Markets API with a CLI"
@@ -16,4 +16,5 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "open-uri-cached" ,">= 0.0.5"
 
   s.add_development_dependency "pry", ">= 0"
+  s.add_development_dependency "rspec", ">= 3.4"
 end
