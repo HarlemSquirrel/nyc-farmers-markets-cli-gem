@@ -1,6 +1,6 @@
 # NYC Farmers Markets
-A Ruby CLI for the [NYC Farmers Markets API](https://dev.socrata.com/foundry/data.cityofnewyork.us/cw3p-q2v6).
-Check it the [RubyGems page](https://rubygems.org/gems/nyc-farmers-markets) for this gem. 
+A Ruby Gem with CLI for the [NYC Farmers Markets API](https://dev.socrata.com/foundry/data.cityofnewyork.us/cw3p-q2v6).
+Check it the [RubyGems page](https://rubygems.org/gems/nyc-farmers-markets) for this gem.
 
 # Install Using RubyGems
 ```
@@ -20,6 +20,23 @@ gem build nyc-farmers-markets.gemspec
 Install the gem
 ```
 gem install ./nyc-farmers-markets-*.gem
+```
+
+# Incorporating in your own app
+Require the library
+```ruby
+require 'nyc_farmers_markets'
+```
+
+Fetch the markets
+```ruby
+markets = NYCFarmersMarkets::GetMarkets.new.make_markets
+```
+
+Each market has seven attributes: `additional_info`, `borough`, `name`, `state`, `street_address`, `website`, and `zipcode`. Some data may be incomplete from the API. You can access these like this:
+```ruby
+markets[0].name # => "Riverdale Youthmarket"
+markets[0].website # => "http://www.grownyc.org/youthmarket"
 ```
 
 # Command-Line Interface
