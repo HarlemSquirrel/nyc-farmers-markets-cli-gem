@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'nyc-farmers-markets'
-  s.version     = '1.0.2
+  s.version     = '1.0.2'
   s.date        = '2016-05-24'
   s.summary     = "Wrapper and CLI the NYC Farmers Markets API"
   s.description = "A Ruby gem for the NYC Farmers Markets API with a CLI"
