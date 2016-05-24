@@ -10,5 +10,6 @@ class NYCFarmersMarkets::GetMarkets
     get_markets.each do |market_hash|
       NYCFarmersMarkets::Market.create_from_hash(market_hash)
     end
+    NYCFarmersMarkets::Market.all
   end
 end
