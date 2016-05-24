@@ -33,6 +33,7 @@ class NYCFarmersMarkets::Market
     market.set_website_from_additional_info
     market.remove_html
     market.save
+    market
   end
 
   def set_website_from_additional_info
