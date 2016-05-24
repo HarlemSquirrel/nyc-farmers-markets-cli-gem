@@ -1,11 +1,12 @@
 # NYC Farmers Markets
 A Ruby Gem with CLI for the [NYC Farmers Markets API](https://dev.socrata.com/foundry/data.cityofnewyork.us/cw3p-q2v6).
-Check it the [RubyGems page](https://rubygems.org/gems/nyc-farmers-markets) for this gem.
+Check out the [RubyGems page](https://rubygems.org/gems/nyc-farmers-markets) for this gem.
 
 # Install Using RubyGems
 ```
 gem install nyc-farmers-markets
 ```
+
 
 # Build and Install from Source
 Clone this repository
@@ -22,22 +23,33 @@ Install the gem
 gem install ./nyc-farmers-markets-*.gem
 ```
 
+
 # Incorporating in your own app
 Require the library
 ```ruby
 require 'nyc_farmers_markets'
 ```
 
-Fetch the markets
+Fetch the markets.
 ```ruby
 markets = NYCFarmersMarkets::GetMarkets.new.make_markets
 ```
 
-Each market has seven attributes: `additional_info`, `borough`, `name`, `state`, `street_address`, `website`, and `zipcode`. Some data may be incomplete from the API. You can access these like this:
+This will give you an array of `Market` objects. Each market has seven attributes: `additional_info`, `borough`, `name`, `state`, `street_address`, `website`, and `zipcode`. Some data may be incomplete from the API. You can access these like this:
 ```ruby
 markets[0].name # => "Riverdale Youthmarket"
 markets[0].website # => "http://www.grownyc.org/youthmarket"
 ```
+
+There are a few useful class methods as well.
+```ruby
+NYCFarmersMarkets::Market.find_by_borough(b)
+NYCFarmersMarkets::Market.find_by_zipcode(z)
+NYCFarmersMarkets::Market.list_boroughs
+NYCFarmersMarkets::Market.list_zipcodes
+NYCFarmersMarkets::Market.num_markets_in_borough(b)
+```
+
 
 # Command-Line Interface
 This gem will give you the `nyc-farmers-markets` executable that you can run in your terminal.
