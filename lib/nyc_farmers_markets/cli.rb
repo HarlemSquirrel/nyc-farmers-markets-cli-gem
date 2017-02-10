@@ -1,12 +1,26 @@
+require 'irb'
+
 module NYCFarmersMarkets
   # The commandline interface class
-  class CLI
+  class Cli
+    EXIT_CMD = 'exit'.freeze
     FLOWER = "\u2698".encode('utf-8').freeze
     FLOWER_ROW = Array.new(15, FLOWER).join('  ').freeze
     HAND = "\u261E".encode('utf-8').freeze
     KEYBOARD = "\u2328".encode('utf-8').freeze
+    CMD_LIST = [
+      'exit',
+      'help',
+      'list all',
+      'list boroughs',
+      'list zip codes'
+    ].flatten.freeze
     VESTA = "\u26B6".encode('utf-8').freeze
     WELCOME_MSG = 'Welcome to the Farmers Markets of NYC'.freeze
+
+    def self.call
+      new.call
+    end
 
     def call
       NYCFarmersMarkets::GetMarkets.new.make_markets
@@ -14,32 +28,44 @@ module NYCFarmersMarkets
       start
     end
 
+    private
+
     def start
       loop do
-        print "\nWhat would you like to do (type help for more info)? "
-
-        input = gets.chomp.downcase
-
-        case input
-        when 'list all'
-          list_all
-        when 'list boroughs'
-          list_boroughs
-        when 'list zip codes'
-          puts market_set.list_zipcodes.join(' - ')
-        when 'help'
-          help
-        when 'exit'
-          puts 'See you next time!'
-          break
-        when *market_set.list_boroughs.map(&:downcase)
-          print_by_borough(input)
-        when *market_set.list_zipcodes
-          print_by_zipcode(input)
-        else
-          puts 'Invalid selection!'.red
-        end
+        input = prompt_user
+        break if interpret(input) == EXIT_CMD
       end
+    end
+
+    def prompt_user
+      print "\nWhat would you like to do (type help for more info)? "
+      gets.chomp.downcase
+    end
+
+    def interpret(input)
+      case input
+      when *CMD_LIST
+        send input.gsub(/\s/, '_').to_sym
+      when *boroughs
+        print_by_borough(input)
+      when *zip_codes
+        print_by_zip_code(input)
+      else
+        puts 'Invalid selection!'.red
+      end
+      input
+    end
+
+    def boroughs
+      @boroughs ||= market_set.list_boroughs.map(&:downcase)
+    end
+
+    def zip_codes
+      @zip_codes ||= market_set.list_zip_codes
+    end
+
+    def exit
+      puts 'See you next time!'
     end
 
     def print_by_borough(borough)
@@ -48,21 +74,18 @@ module NYCFarmersMarkets
       end
     end
 
-    def print_market_info(market)
-      puts "\n#{market.name}".green
-      if market.street_address.nil?
-        puts '- address not available -'
-      else
-        puts "#{market.street_address}, #{market.borough}, #{market.zipcode}"
-      end
-      puts market.additional_info.to_s unless market.additional_info.nil?
-      puts market.website.to_s unless market.website.nil?
-    end
-
-    def print_by_zipcode(zipcode)
-      market_set.find_by_zipcode(zipcode).each do |market|
+    def print_by_zip_code(zip_code)
+      market_set.find_by_zip_code(zip_code).each do |market|
         print_market_info market
       end
+    end
+
+    def print_market_info(market)
+      info = "\n#{market.name}\n".green
+      info << "#{market.full_address}\n"
+      info << "#{market.additional_info}\n" unless market.additional_info.nil?
+      info << "#{market.website}\n" unless market.website.nil?
+      puts info
     end
 
     def list_all
@@ -79,6 +102,10 @@ module NYCFarmersMarkets
       puts boroughs_with_num_markets.join(', ')
     end
 
+    def list_zip_codes
+      puts market_set.list_zip_codes.join(' - ')
+    end
+
     def help
       headline = "\n #{KEYBOARD} These are the available commands #{KEYBOARD}"
       puts headline.light_blue.underline
@@ -92,7 +119,7 @@ module NYCFarmersMarkets
     end
 
     def market_set
-      NYCFarmersMarkets::Market
+      @market_set ||= NYCFarmersMarkets::Market
     end
 
     def print_welcome

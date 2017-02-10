@@ -1,59 +1,83 @@
 module NYCFarmersMarkets
   # Organizes the actual market data
   class Market
-    attr_accessor(
-      :name,
-      :additional_info,
-      :street_address,
-      :borough,
-      :state,
-      :zipcode,
-      :latitude,
-      :longitude,
-      :website
-    )
+    attr_reader :additional_info, :borough, :name, :state, :street_address,
+                :latitude, :longitude, :website, :zip_code
 
-    @@all = []
+    @all = []
 
-    def initialize(name: nil, additional_info: nil, street_address: nil, borough: nil, state: 'NY', zipcode: nil, website: nil)
-      @name = name
-      @additional_info = additional_info
-      @street_address = street_address
-      @borough = borough
-      @state = state
-      @zipcode = zipcode
-      @website = website
+    class << self
+      attr_accessor :all
     end
 
-    def self.all
-      @@all
+    def initialize(attributes={})
+      @additional_info = attributes[:additional_info]
+      @borough = attributes[:borough]
+      @name = attributes[:name]
+      @state = attributes[:state] ? attributes[:state] : 'NY'
+      @street_address = attributes[:street_address]
+      @latitude = attributes[:latitude]
+      @longitude = attributes[:longitude]
+      @website = attributes[:website]
+      @zip_code = attributes[:zip_code]
     end
 
-    def save
-      @@all << self
+    def self.create(attributes)
+      market = new attributes
+      market.cleanup
+      all << market
+      market
     end
 
     def self.create_from_hash(h)
-      market = new(
+      create(
         name: h['facilityname'],
         additional_info: h['facilityaddinfo'],
         street_address: h['facilitystreetname'],
         borough: h['facilitycity'],
         state: h['facilitystate'],
-        zipcode: h['facilityzipcode']
+        zip_code: h['facilityzipcode']
       )
-
-      market.set_website_from_additional_info
-      market.remove_html
-      market.save
-      market
     end
+
+    def cleanup
+      set_website_from_additional_info
+      remove_html
+      self
+    end
+
+    def full_address
+      return '- address not available -' if street_address.nil?
+      "#{street_address}, #{borough}, #{zip_code}"
+    end
+
+    def self.find_by_borough(b)
+      all.select { |m| b.casecmp(m.borough.to_s).zero? }
+    end
+
+    def self.find_by_zip_code(z)
+      all.select { |market| market.zip_code == z }
+    end
+
+    def self.list_boroughs
+      all.collect(&:borough).compact.uniq.sort
+    end
+
+    def self.list_zip_codes
+      all.collect(&:zip_code).compact.uniq.sort
+    end
+
+    def self.num_markets_in_borough(b)
+      find_by_borough(b).count
+    end
+
+    private
 
     def set_website_from_additional_info
       return if additional_info.nil?
       url_from_info = additional_info.match %r{http:(\w|\/|\.|\&|\=|\?|\_)*<}
       return if url_from_info.nil?
-      self.website = url_from_info[0].chomp('<').chomp('.')
+      @website = url_from_info[0].chomp('<').chomp('.')
     end
 
     def remove_html
@@ -61,26 +85,6 @@ module NYCFarmersMarkets
       x = additional_info.index('<')
       y = additional_info.length - 1
       additional_info.slice!(x..y)
-    end
-
-    def self.find_by_borough(b)
-      all.select { |m| b.casecmp(m.borough.to_s).zero? }
-    end
-
-    def self.find_by_zipcode(z)
-      all.select { |market| market.zipcode == z }
-    end
-
-    def self.list_boroughs
-      all.collect(&:borough).compact.uniq.sort
-    end
-
-    def self.list_zipcodes
-      all.collect(&:zipcode).compact.uniq.sort
-    end
-
-    def self.num_markets_in_borough(b)
-      find_by_borough(b).count
     end
   end
 end

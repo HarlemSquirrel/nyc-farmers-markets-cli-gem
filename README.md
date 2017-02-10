@@ -37,7 +37,7 @@ Fetch the markets.
 markets = NYCFarmersMarkets::GetMarkets.new.make_markets
 ```
 
-This will give you an array of `Market` objects. Each market has seven attributes: `additional_info`, `borough`, `name`, `state`, `street_address`, `website`, and `zipcode`. Some data may be incomplete from the API. You can access these like this:
+This will give you an array of `Market` objects. Each market has seven attributes: `additional_info`, `borough`, `name`, `state`, `street_address`, `website`, and `zip_code`. Some data may be incomplete from the API. You can access these like this:
 ```ruby
 markets[0].name # => "Riverdale Youthmarket"
 markets[0].website # => "http://www.grownyc.org/youthmarket"
@@ -46,9 +46,9 @@ markets[0].website # => "http://www.grownyc.org/youthmarket"
 There are a few useful class methods as well.
 ```ruby
 NYCFarmersMarkets::Market.find_by_borough(b)
-NYCFarmersMarkets::Market.find_by_zipcode(z)
+NYCFarmersMarkets::Market.find_by_zip_code(z)
 NYCFarmersMarkets::Market.list_boroughs
-NYCFarmersMarkets::Market.list_zipcodes
+NYCFarmersMarkets::Market.list_zip_codes
 NYCFarmersMarkets::Market.num_markets_in_borough(b)
 ```
 
