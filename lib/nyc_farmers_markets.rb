@@ -1,3 +1,4 @@
+# The main module
 module NYCFarmersMarkets
 end
 

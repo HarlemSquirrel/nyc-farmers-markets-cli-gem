@@ -1,10 +1,10 @@
 require 'nyc_farmers_markets'
 require "pry"
 
-RSpec.describe NYCFarmersMarkets::GetMarkets, '#get_markets' do
+RSpec.describe NYCFarmersMarkets::GetMarkets, '#retrieve_markets' do
   context "with internet connection" do
     it "retrieves and parses the JSON from NYC Open Data" do
-      markets = NYCFarmersMarkets::GetMarkets.new.get_markets
+      markets = NYCFarmersMarkets::GetMarkets.new.retrieve_markets
       expect markets.length > 0
       expect markets[0]["facilitycity"].length > 0
       expect markets[0]["facilitystreetname"].length > 0
