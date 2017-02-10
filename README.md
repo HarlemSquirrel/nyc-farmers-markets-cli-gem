@@ -1,14 +1,16 @@
+[![Code Climate](https://codeclimate.com/github/HarlemSquirrel/nyc-farmers-markets-cli-gem/badges/gpa.svg)](https://codeclimate.com/github/HarlemSquirrel/nyc-farmers-markets-cli-gem)
+
 # NYC Farmers Markets
 A Ruby Gem with CLI for the [NYC Farmers Markets API](https://dev.socrata.com/foundry/data.cityofnewyork.us/cw3p-q2v6).
 Check out the [RubyGems page](https://rubygems.org/gems/nyc-farmers-markets) for this gem.
 
-# Install Using RubyGems
+## Install Using RubyGems
 ```
 gem install nyc-farmers-markets
 ```
 
 
-# Build and Install from Source
+## Build and Install from Source
 Clone this repository
 ```
 git clone https://github.com/HarlemSquirrel/nyc-farmers-markets-cli-gem.git
@@ -24,7 +26,7 @@ gem install ./nyc-farmers-markets-*.gem
 ```
 
 
-# Incorporating in your own app
+## Incorporating in your own app
 Require the library
 ```ruby
 require 'nyc_farmers_markets'
@@ -51,13 +53,13 @@ NYCFarmersMarkets::Market.num_markets_in_borough(b)
 ```
 
 
-# Command-Line Interface
+## Command-Line Interface
 This gem will give you the `nyc-farmers-markets` executable that you can run in your terminal.
 ```
 $ nyc-farmers-markets
 
 	 ⚶ Welcome to the Farmers Markets of NYC ⚶
-	⚘  ⚘  ⚘  ⚘  ⚘  ⚘  ⚘  ⚘  ⚘  ⚘  ⚘  ⚘  ⚘  ⚘  ⚘  
+	⚘  ⚘  ⚘  ⚘  ⚘  ⚘  ⚘  ⚘  ⚘  ⚘  ⚘  ⚘  ⚘  ⚘  ⚘
 
 What would you like to do (type help for more info)? help
 
@@ -71,7 +73,7 @@ What would you like to do (type help for more info)? help
 ☞exit		        -Say good-bye
 ```
 
-# Tests
+## Tests
 There is an RSpec test suite you can run.
 ```
 rspec
