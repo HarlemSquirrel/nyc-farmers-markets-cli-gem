@@ -1,0 +1,52 @@
+[
+  {
+    "facilityaddinfo":"Spend $5 in EBT and get a $2 Health Buck coupon.<br><br><b>Program Website:</b> <a  href=''http://www.grownyc.org/youthmarket'' target=''_blank''>http://www.grownyc.org/youthmarket</a>",
+    "facilitycity":"Bronx",
+    "facilityname":"Riverdale Youthmarket",
+    "facilitystate":"NY",
+    "facilitystreetname":"256th St & Mosholu Ave",
+    "facilityzipcode":"10471",
+    "latitude":"41",
+    "longitude":"-74"
+  },
+  {
+    "facilityaddinfo":"Spend $5 in EBT and get a $2 Health Buck coupon.<br><br><b>Program Website:</b> <a  href=''http://www.grownyc.org.'' target=''_blank''>http://www.grownyc.org.</a>",
+    "facilitycity":"Queens",
+    "facilityname":"Astoria Greenmarket",
+    "facilitystate":"NY",
+    "facilitystreetname":"30th Dr",
+    "facilityzipcode":"11106",
+    "latitude":"41",
+    "longitude":"-74"
+  },
+  {
+    "facilityaddinfo":"Spend $5 in EBT and get a $2 Health Buck coupon.<br><br><b>Program Website:</b> <a  href=''http://www.grownyc.org.'' target=''_blank''>http://www.grownyc.org.</a>",
+    "facilitycity":"Manhattan",
+    "facilityname":"St. Mark's Church Greenmarket",
+    "facilitystate":"NY",
+    "facilitystreetname":"E 10th St",
+    "facilityzipcode":"10003",
+    "latitude":"41",
+    "longitude":"-74"
+  },
+  {
+    "facilityaddinfo":"Spend $5 in EBT and get a $2 Health Buck coupon.<br><br><b>Program Website:</b> <a  href=''http://www.grownyc.org.'' target=''_blank''>http://www.grownyc.org.</a>",
+    "facilitycity":"Queens",
+    "facilityname":"Corona Greenmarket",
+    "facilitystate":"NY",
+    "facilitystreetname":"103rd St",
+    "facilityzipcode":"11368",
+    "latitude":"41",
+    "longitude":"-74"
+  },
+  {
+    "facilityaddinfo":"Spend $5 in EBT and get a $2 Health Buck coupon.<br><br><b>Program Website:</b> <a  href=''http://www.grownyc.org.'' target=''_blank''>http://www.grownyc.org.</a>",
+    "facilitycity":"Brooklyn",
+    "facilityname":"Windsor Terrace - PS 154 Greenmarket",
+    "facilitystate":"NY",
+    "facilitystreetname":"11th Ave bet Sherman St & Windsor Pl",
+    "facilityzipcode":"11215",
+    "latitude":"41",
+    "longitude":"-74"
+  }
+]

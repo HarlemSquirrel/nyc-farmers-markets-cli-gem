@@ -47,8 +47,8 @@ There are a few useful class methods as well.
 ```ruby
 NYCFarmersMarkets::Market.find_by_borough(b)
 NYCFarmersMarkets::Market.find_by_zip_code(z)
-NYCFarmersMarkets::Market.list_boroughs
-NYCFarmersMarkets::Market.list_zip_codes
+NYCFarmersMarkets::Market.boroughs
+NYCFarmersMarkets::Market.zip_codes
 NYCFarmersMarkets::Market.num_markets_in_borough(b)
 ```
 

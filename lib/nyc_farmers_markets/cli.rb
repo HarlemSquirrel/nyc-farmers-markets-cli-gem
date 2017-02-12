@@ -1,22 +1,23 @@
-require 'irb'
+# frozen_string_literal: true
 
 module NYCFarmersMarkets
   # The commandline interface class
   class Cli
-    EXIT_CMD = 'exit'.freeze
-    FLOWER = "\u2698".encode('utf-8').freeze
-    FLOWER_ROW = Array.new(15, FLOWER).join('  ').freeze
-    HAND = "\u261E".encode('utf-8').freeze
-    KEYBOARD = "\u2328".encode('utf-8').freeze
+    EXIT_CMD = 'exit'
+    FLOWER = "\u2698".encode('utf-8')
+    FLOWER_ROW = Array.new(15, FLOWER).join('  ')
+    HAND = "\u261E".encode('utf-8')
+    KEYBOARD = "\u2328".encode('utf-8')
     CMD_LIST = [
       'exit',
       'help',
       'list all',
       'list boroughs',
-      'list zip codes'
-    ].flatten.freeze
-    VESTA = "\u26B6".encode('utf-8').freeze
-    WELCOME_MSG = 'Welcome to the Farmers Markets of NYC'.freeze
+      'list zip codes',
+      'version'
+    ].flatten
+    VESTA = "\u26B6".encode('utf-8')
+    WELCOME_MSG = 'Welcome to the Farmers Markets of NYC'
 
     def self.call
       new.call
@@ -33,7 +34,8 @@ module NYCFarmersMarkets
     def start
       loop do
         input = prompt_user
-        break if interpret(input) == EXIT_CMD
+        interpret(input)
+        break if input == EXIT_CMD
       end
     end
 
@@ -46,22 +48,13 @@ module NYCFarmersMarkets
       case input
       when *CMD_LIST
         send input.gsub(/\s/, '_').to_sym
-      when *boroughs
+      when *market_set.boroughs_lowercase
         print_by_borough(input)
-      when *zip_codes
+      when *market_set.zip_codes
         print_by_zip_code(input)
       else
         puts 'Invalid selection!'.red
       end
-      input
-    end
-
-    def boroughs
-      @boroughs ||= market_set.list_boroughs.map(&:downcase)
-    end
-
-    def zip_codes
-      @zip_codes ||= market_set.list_zip_codes
     end
 
     def exit
@@ -96,26 +89,27 @@ module NYCFarmersMarkets
 
     def list_boroughs
       puts "\n\tBoroughs and Their Number of Farmers Markets".green
-      boroughs_with_num_markets = market_set.list_boroughs.collect do |b|
+      boroughs_with_num_markets = market_set.boroughs.collect do |b|
         "#{b}(#{market_set.num_markets_in_borough(b)})"
       end
       puts boroughs_with_num_markets.join(', ')
     end
 
     def list_zip_codes
-      puts market_set.list_zip_codes.join(' - ')
+      puts market_set.zip_codes.join(' - ')
     end
 
     def help
       headline = "\n #{KEYBOARD} These are the available commands #{KEYBOARD}"
       puts headline.light_blue.underline
-      puts "#{HAND}list all\t- See a list of all Farmers Markets"
-      puts "#{HAND}list boroughs  - See a list of boroughs with Farmers Markets"
-      puts "#{HAND}[borough name] - See all markets in this borough"
-      puts "#{HAND}list zip codes - See a list of zip codes"
-      puts "#{HAND}[zip code]\t- See all markets in this zip code"
-      puts "#{HAND}help\t\t- See this helpful list of commands!"
-      puts "#{HAND}exit\t\t- Say good-bye"
+      puts "#{HAND} list all\t - See a list of all Farmers Markets"
+      puts "#{HAND} list boroughs  - See a list of boroughs with Farmers Markets"
+      puts "#{HAND} [borough name] - See all markets in this borough"
+      puts "#{HAND} list zip codes - See a list of zip codes"
+      puts "#{HAND} [zip code]\t - See all markets in this zip code"
+      puts "#{HAND} help\t\t - See this helpful list of commands!"
+      puts "#{HAND} version\t - See the currently running version!"
+      puts "#{HAND} exit\t\t - Say good-bye"
     end
 
     def market_set
@@ -125,6 +119,10 @@ module NYCFarmersMarkets
     def print_welcome
       puts "\n\t #{VESTA} #{WELCOME_MSG} #{VESTA} ".green.underline
       puts "\t#{FLOWER_ROW.light_blue}"
+    end
+
+    def version
+      puts NYCFarmersMarkets::VERSION
     end
   end
 end

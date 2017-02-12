@@ -1,10 +1,16 @@
+# frozen_string_literal: true
+
 RSpec.describe NYCFarmersMarkets::Cli do
   describe '.call' do
     let(:cli) { instance_double described_class, call: nil }
 
+    before do
+      allow(described_class).to receive(:new) { cli }
+    end
+
     it 'calls #call on a new instance' do
-      expect(described_class).to receive(:new) { cli }
       described_class.call
+      expect(cli).to have_received(:call)
     end
   end
 
@@ -28,8 +34,8 @@ RSpec.describe NYCFarmersMarkets::Cli do
     end
 
     it 'makes a new set of markets' do
-      expect(get_markets).to receive :make_markets
       cli.call
+      expect(get_markets).to have_received :make_markets
     end
   end
 end
