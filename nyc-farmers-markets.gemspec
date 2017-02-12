@@ -1,8 +1,7 @@
-# lib = File.expand_path('../lib', __FILE__)
-# $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-# require 'nyc_farmers_markets'
-$LOAD_PATH.unshift File.expand_path("../lib", __FILE__)
-require "nyc_farmers_markets/version"
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift File.expand_path('../lib', __FILE__)
+require 'nyc_farmers_markets/version'
 
 Gem::Specification.new do |s|
   s.name = 'nyc-farmers-markets'

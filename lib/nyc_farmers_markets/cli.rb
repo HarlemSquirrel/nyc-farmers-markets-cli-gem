@@ -1,24 +1,24 @@
 # frozen_string_literal: true
 
 module NYCFarmersMarkets
+  EXIT_CMD = 'exit'
+  FLOWER = "\u2698".encode('utf-8')
+  FLOWER_ROW = Array.new(15, FLOWER).join('  ')
+  HAND = "\u261E".encode('utf-8')
+  KEYBOARD = "\u2328".encode('utf-8')
+  CMD_LIST = [
+    'exit',
+    'help',
+    'list all',
+    'list boroughs',
+    'list zip codes',
+    'version'
+  ].flatten
+  VESTA = "\u26B6".encode('utf-8')
+  WELCOME_MSG = 'Welcome to the Farmers Markets of NYC'
+
   # The commandline interface class
   class Cli
-    EXIT_CMD = 'exit'
-    FLOWER = "\u2698".encode('utf-8')
-    FLOWER_ROW = Array.new(15, FLOWER).join('  ')
-    HAND = "\u261E".encode('utf-8')
-    KEYBOARD = "\u2328".encode('utf-8')
-    CMD_LIST = [
-      'exit',
-      'help',
-      'list all',
-      'list boroughs',
-      'list zip codes',
-      'version'
-    ].flatten
-    VESTA = "\u26B6".encode('utf-8')
-    WELCOME_MSG = 'Welcome to the Farmers Markets of NYC'
-
     def self.call
       new.call
     end

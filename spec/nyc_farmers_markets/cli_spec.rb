@@ -16,9 +16,9 @@ RSpec.describe NYCFarmersMarkets::Cli do
 
   describe '#call' do
     let(:cli) { described_class.new }
-    let(:flower_row) { described_class::FLOWER_ROW }
+    let(:flower_row) { NYCFarmersMarkets::FLOWER_ROW }
     let(:get_markets) { instance_double NYCFarmersMarkets::GetMarkets, make_markets: nil }
-    let(:welcome_msg) { described_class::WELCOME_MSG }
+    let(:welcome_msg) { NYCFarmersMarkets::WELCOME_MSG }
 
     before do
       allow(cli).to receive(:start) { nil }
