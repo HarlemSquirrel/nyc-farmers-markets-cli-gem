@@ -1,0 +1,13 @@
+require: rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.4
+
+Metrics/BlockLength:
+  CountComments: false  # count full line comments?
+  Max: 25
+  Exclude:
+    - 'spec/**/*.rb'
+
+Metrics/LineLength:
+  Max: 100
