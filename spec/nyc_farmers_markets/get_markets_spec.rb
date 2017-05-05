@@ -3,33 +3,11 @@
 RSpec.describe NYCFarmersMarkets::GetMarkets do
   let(:data) { JSON.parse json }
   let(:get_markets) { described_class.new }
-  let(:json) do
-    '[
-      {
-        "facilityaddinfo":"Additional info 1",
-        "facilitycity":"Bronx",
-        "facilityname":"Riverdale Youthmarket",
-        "facilitystate":"NY",
-        "facilitystreetname":"256th St & Mosholu Ave",
-        "facilityzipcode":"10471",
-        "latitude":"41",
-        "longitude":"-74"
-      },
-      {
-        "facilityaddinfo":"Additional info 2",
-        "facilitycity":"Queens",
-        "facilityname":"Astoria Greenmarket",
-        "facilitystate":"NY",
-        "facilitystreetname":"30th Dr",
-        "facilityzipcode":"11106",
-        "latitude":"41",
-        "longitude":"-74"
-      }
-    ]'
-  end
+  let(:json) { File.read json_file_path }
+  let(:json_file_path) { 'spec/support/network_stubs/responses/markets_2.json' }
 
   before do
-    allow(File).to receive(:open) { json }
+    stub_const "#{described_class}::URL", json_file_path
   end
 
   describe '#make_markets' do

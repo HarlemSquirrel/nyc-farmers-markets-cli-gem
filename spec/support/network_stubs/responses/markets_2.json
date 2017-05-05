@@ -1,0 +1,22 @@
+[
+  {
+    "facilityaddinfo":"Additional info 1",
+    "facilitycity":"Bronx",
+    "facilityname":"Riverdale Youthmarket",
+    "facilitystate":"NY",
+    "facilitystreetname":"256th St & Mosholu Ave",
+    "facilityzipcode":"10471",
+    "latitude":"41",
+    "longitude":"-74"
+  },
+  {
+    "facilityaddinfo":"Additional info 2",
+    "facilitycity":"Queens",
+    "facilityname":"Astoria Greenmarket",
+    "facilitystate":"NY",
+    "facilitystreetname":"30th Dr",
+    "facilityzipcode":"11106",
+    "latitude":"41",
+    "longitude":"-74"
+  }
+]

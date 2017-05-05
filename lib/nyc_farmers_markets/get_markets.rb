@@ -6,7 +6,7 @@ module NYCFarmersMarkets
     URL = 'https://data.cityofnewyork.us/resource/cw3p-q2v6.json'
 
     def make_markets
-      retrieve_markets.each do |market_hash|
+      retrieved_markets.each do |market_hash|
         NYCFarmersMarkets::Market.create_from_hash(market_hash)
       end
       NYCFarmersMarkets::Market.all
@@ -14,9 +14,8 @@ module NYCFarmersMarkets
 
     private
 
-    def retrieve_markets
-      content = open(URL).read
-      JSON.parse(content)
+    def retrieved_markets
+      JSON.parse open(URL).read
     end
   end
 end
