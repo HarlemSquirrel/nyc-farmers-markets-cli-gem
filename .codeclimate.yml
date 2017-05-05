@@ -2,6 +2,8 @@
 engines:
   duplication:
     enabled: true
+    exclude_paths:
+      - "spec/"
     config:
       languages:
       - ruby
@@ -21,6 +23,3 @@ ratings:
   - "**.php"
   - "**.py"
   - "**.rb"
-exclude_paths:
-- config/
-- spec/
