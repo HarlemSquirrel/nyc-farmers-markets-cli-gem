@@ -7,7 +7,9 @@ RSpec.describe NYCFarmersMarkets::GetMarkets do
   let(:json_file_path) { 'spec/support/network_stubs/responses/markets_2.json' }
 
   before do
-    stub_const "#{described_class}::URL", json_file_path
+    # stub_const "#{described_class}::API_URL", json_file_path
+    stub_request(:get, described_class::API_URL)
+      .to_return(body: File.new(json_file_path))
   end
 
   describe '#make_markets' do
@@ -18,7 +20,7 @@ RSpec.describe NYCFarmersMarkets::GetMarkets do
     end
 
     it 'creates instances of the Market class for each market retrieved' do
-      expect { get_markets.make_markets }.to change { markets.count }.to data.length
+      expect { get_markets.make_markets }.to change(markets, :count).to data.length
     end
 
     it 'sets the market data' do

@@ -74,12 +74,7 @@ module NYCFarmersMarkets
     end
 
     def print_market_info(market)
-      info = "\n#{market.name}\n".green
-      info << "#{market.full_address}\n"
-      info << "#{market.additional_info}\n" unless market.additional_info.nil?
-      info << "#{market.website}\n" unless market.website.nil?
-      info << "#{market.open_street_map_link}\n" unless market.open_street_map_link.nil?
-      puts info
+      puts '', market.summary
     end
 
     def list_all

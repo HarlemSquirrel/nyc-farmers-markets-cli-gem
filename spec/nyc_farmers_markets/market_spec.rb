@@ -125,26 +125,4 @@ RSpec.describe NYCFarmersMarkets::Market do
       expect(market_count).to eq described_class.num_markets_in_borough(market.borough)
     end
   end
-
-  context 'private methods' do
-    let(:market) { described_class.new(additional_info_raw: hash1['additionalinfo']) }
-
-    describe '#set_website_from_additional_info_raw' do
-      let(:website) { 'http://www.grownyc.org/youthmarket' }
-
-      it 'can set the website from the raw additonal info' do
-        expect { market.send :set_website_from_additional_info_raw }
-          .to change { market.website }.to website
-      end
-    end
-
-    describe '#set_additional_info' do
-      let(:info) { 'Spend $5 in EBT and get a $2 Health Buck coupon.' }
-
-      it 'can remove HTML from additional info' do
-        expect { market.send :set_additional_info }
-          .to change { market.additional_info }.to info
-      end
-    end
-  end
 end

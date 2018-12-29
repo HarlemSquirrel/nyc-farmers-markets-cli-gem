@@ -16,25 +16,30 @@ module NYCFarmersMarkets
     end
 
     def cleanup
-      set_website_from_additional_info_raw
-      set_additional_info
+      set_website_and_info_from_additional_info_raw
       self
     end
 
     def full_address
       return '- address not available -' if street_address.nil?
+
       "#{street_address}, #{borough}, #{zip_code}"
     end
 
     def open_street_map_link
       return if latitude.to_s.empty? || longitude.to_s.empty?
+
       'https://www.openstreetmap.org/' \
         "?mlat=#{latitude}&mlon=#{longitude}#map=11/#{latitude}/#{longitude}"
     end
 
+    def summary
+      [name.green, full_address, additional_info, website, open_street_map_link]
+        .compact.join("\n")
+    end
+
     class << self
       attr_accessor :all
-
 
       def create(attributes)
         market = new attributes
@@ -43,25 +48,25 @@ module NYCFarmersMarkets
         market
       end
 
-      def create_from_hash(h)
+      def create_from_hash(hash)
         create(
-          name: h['facilityname'],
-          additional_info_raw: h['additionalinfo'],
-          street_address: h['address'],
-          borough: h['borough'],
-          zip_code: h['zipcode'],
-          latitude: h['latitude'],
-          longitude: h['longitude'],
-          website: h['website']
+          name: hash['facilityname'],
+          additional_info_raw: hash['additionalinfo'],
+          street_address: hash['address'],
+          borough: hash['borough'],
+          zip_code: hash['zipcode'],
+          latitude: hash['latitude'],
+          longitude: hash['longitude'],
+          website: hash['website']
         )
       end
 
-      def find_by_borough(b)
-        all.select { |m| b.casecmp(m.borough.to_s).zero? }
+      def find_by_borough(query)
+        all.select { |m| query.casecmp(m.borough.to_s).zero? }
       end
 
-      def find_by_zip_code(z)
-        all.select { |market| market.zip_code == z }
+      def find_by_zip_code(query)
+        all.select { |market| market.zip_code == query }
       end
 
       def boroughs
@@ -76,8 +81,8 @@ module NYCFarmersMarkets
         @zip_codes ||= all.collect(&:zip_code).compact.uniq.sort
       end
 
-      def num_markets_in_borough(b)
-        find_by_borough(b).count
+      def num_markets_in_borough(query)
+        find_by_borough(query).count
       end
 
       def destroy_all!
@@ -87,16 +92,14 @@ module NYCFarmersMarkets
 
     private
 
-    def set_website_from_additional_info_raw
+    def set_website_and_info_from_additional_info_raw
       return if additional_info_raw.to_s.empty?
+
+      @additional_info ||= additional_info_raw.match(/\A[^<]*/).to_s
       url = additional_info_raw.match %r{http(:|\w|\/|\.|\&|\=|\?|\_)*<}
       return if url.nil?
-      @website = url[0].chomp('<').chomp('.')
-    end
 
-    def set_additional_info
-      return if additional_info_raw.to_s.empty?
-      @additional_info ||= additional_info_raw.match(/\A[^<]*/).to_s
+      @website = url[0].chomp('<').chomp('.')
     end
   end
 end

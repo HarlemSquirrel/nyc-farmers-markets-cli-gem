@@ -21,7 +21,7 @@ RSpec.describe NYCFarmersMarkets::Cli do
     let(:welcome_msg) { NYCFarmersMarkets::WELCOME_MSG }
 
     before do
-      allow(cli).to receive(:start) { nil }
+      allow(cli).to receive(:start).and_return(nil)
       allow(NYCFarmersMarkets::GetMarkets).to receive(:new) { get_markets }
     end
 
