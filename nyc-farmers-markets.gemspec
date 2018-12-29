@@ -15,12 +15,12 @@ Gem::Specification.new do |s|
   s.license     = 'MIT'
   s.executables << 'nyc-farmers-markets'
 
-  s.add_runtime_dependency 'colorize', '~> 0.7'
+  s.add_runtime_dependency 'colorize', '~> 0.8'
   s.add_runtime_dependency 'json', '~> 2.0'
-  s.add_runtime_dependency 'open-uri-cached', '>= 0.0.5'
+  s.add_runtime_dependency 'open-uri-cached', '~> 0.0'
 
-  s.add_development_dependency 'rspec', '>= 3.5'
-  s.add_development_dependency 'rubocop', '>= 0.47'
-  s.add_development_dependency 'rubocop-rspec', '>= 1.10'
-  s.add_development_dependency 'webmock', '>= 2.3.2'
+  s.add_development_dependency 'rspec', '~> 3.5'
+  s.add_development_dependency 'rubocop', '~> 0.47'
+  s.add_development_dependency 'rubocop-rspec', '~> 1.10'
+  s.add_development_dependency 'webmock', '~> 3.5'
 end
