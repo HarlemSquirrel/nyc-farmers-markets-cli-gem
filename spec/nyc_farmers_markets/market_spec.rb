@@ -99,7 +99,7 @@ RSpec.describe NYCFarmersMarkets::Market do
       described_class.create_from_hash(hash2)
     end
 
-    it 'can list all boroughs with markets in lowercase' do
+    xit 'can list all boroughs with markets in lowercase' do
       expect(described_class.boroughs_lowercase).to eq boroughs
     end
   end
