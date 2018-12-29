@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'open-uri-cached', '~> 0.0'
 
   s.add_development_dependency 'rspec', '~> 3.5'
-  s.add_development_dependency 'rubocop', '~> 0.47'
+  s.add_development_dependency 'rubocop', '~> 0.49'
   s.add_development_dependency 'rubocop-rspec', '~> 1.10'
   s.add_development_dependency 'webmock', '~> 3.5'
 end
