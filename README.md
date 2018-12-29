@@ -1,4 +1,5 @@
 [![Code Climate](https://codeclimate.com/github/HarlemSquirrel/nyc-farmers-markets-cli-gem/badges/gpa.svg)](https://codeclimate.com/github/HarlemSquirrel/nyc-farmers-markets-cli-gem)
+[![Build Status](https://travis-ci.org/HarlemSquirrel/nyc-farmers-markets-cli-gem.svg?branch=master)](https://travis-ci.org/HarlemSquirrel/nyc-farmers-markets-cli-gem)
 
 # NYC Farmers Markets
 A Ruby Gem with CLI for the [NYC Farmers Markets API](https://dev.socrata.com/foundry/data.cityofnewyork.us/cw3p-q2v6).
