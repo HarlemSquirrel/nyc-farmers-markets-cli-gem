@@ -3,30 +3,30 @@
 RSpec.describe NYCFarmersMarkets::Market do
   let(:hash1) do
     {
-      'facilityaddinfo' =>
+      'additionalinfo' =>
         'Spend $5 in EBT and get a $2 Health Buck coupon.<br><br><b>'\
         'Program Website:</b> <a href="http://www.grownyc.org/youthmarket"'\
         ' target="_blank">http://www.grownyc.org/youthmarket</a>',
-      'facilitycity' => 'Bronx',
+      'borough' => 'Bronx',
       'facilityname' => 'Riverdale Youthmarket',
       'facilitystate' => 'NY',
-      'facilitystreetname' => '256th St & Mosholu Ave',
-      'facilityzipcode' => '10471',
+      'address' => '256th St & Mosholu Ave',
+      'zipcode' => '10471',
       'latitude' => '41',
       'longitude' => '-74'
     }
   end
   let(:hash2) do
     {
-      'facilityaddinfo' =>
+      'additionalinfo' =>
         'Spend $5 in EBT and get a $2 Health Buck coupon.<br><br><b>'\
         'Program Website:</b> <a href="http://www.grownyc.org." '\
         'target="_blank">http://www.grownyc.org.</a>',
-      'facilitycity' => 'Queens',
+      'borough' => 'Queens',
       'facilityname' => 'Astoria Greenmarket',
       'facilitystate' => 'NY',
-      'facilitystreetname' => '30th Dr',
-      'facilityzipcode' => '11106',
+      'address' => '30th Dr',
+      'zipcode' => '11106',
       'latitude' => '41',
       'longitude' => '-74'
     }
@@ -41,16 +41,16 @@ RSpec.describe NYCFarmersMarkets::Market do
   it { is_expected.to respond_to(:zip_code) }
 
   describe '.create_from_hash' do
-    let(:additional_info) { hash1['facilityaddinfo'].match(/\A[^<]*/).to_s }
+    let(:additional_info) { hash1['additionalinfo'].match(/\A[^<]*/).to_s }
     let!(:market) { described_class.create_from_hash(hash1) }
 
     it { expect(market.name).to eq hash1['facilityname'] }
     it { expect(market.additional_info).to eq additional_info }
-    it { expect(market.additional_info_raw).to eq hash1['facilityaddinfo'] }
-    it { expect(market.street_address).to eq hash1['facilitystreetname'] }
-    it { expect(market.borough).to eq hash1['facilitycity'] }
+    it { expect(market.additional_info_raw).to eq hash1['additionalinfo'] }
+    it { expect(market.street_address).to eq hash1['address'] }
+    it { expect(market.borough).to eq hash1['borough'] }
     it { expect(market.state).to eq hash1['facilitystate'] }
-    it { expect(market.zip_code).to eq hash1['facilityzipcode'] }
+    it { expect(market.zip_code).to eq hash1['zipcode'] }
   end
 
   describe '.find_by_borough' do
@@ -127,7 +127,7 @@ RSpec.describe NYCFarmersMarkets::Market do
   end
 
   context 'private methods' do
-    let(:market) { described_class.new(additional_info_raw: hash1['facilityaddinfo']) }
+    let(:market) { described_class.new(additional_info_raw: hash1['additionalinfo']) }
 
     describe '#set_website_from_additional_info_raw' do
       let(:website) { 'http://www.grownyc.org/youthmarket' }

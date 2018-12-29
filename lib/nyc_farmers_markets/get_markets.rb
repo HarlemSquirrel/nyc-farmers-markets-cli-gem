@@ -3,7 +3,8 @@
 module NYCFarmersMarkets
   # Retrieves the from the NYC Open Data API
   class GetMarkets
-    URL = 'https://data.cityofnewyork.us/resource/cw3p-q2v6.json'
+    # https://data.cityofnewyork.us/dataset/DOHMH-Farmers-Markets-and-Food-Boxes/8vwk-6iz2
+    URL = 'https://data.cityofnewyork.us/resource/94pk-v63f.json'
 
     def make_markets
       retrieved_markets.each do |market_hash|

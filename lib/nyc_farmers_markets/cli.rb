@@ -78,6 +78,7 @@ module NYCFarmersMarkets
       info << "#{market.full_address}\n"
       info << "#{market.additional_info}\n" unless market.additional_info.nil?
       info << "#{market.website}\n" unless market.website.nil?
+      info << "#{market.open_street_map_link}\n" unless market.open_street_map_link.nil?
       puts info
     end
 

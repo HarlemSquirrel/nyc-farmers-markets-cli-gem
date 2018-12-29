@@ -1,52 +1,147 @@
 [
   {
-    "facilityaddinfo":"Spend $5 in EBT and get a $2 Health Buck coupon.<br><br><b>Program Website:</b> <a  href=''http://www.grownyc.org/youthmarket'' target=''_blank''>http://www.grownyc.org/youthmarket</a>",
-    "facilitycity":"Bronx",
-    "facilityname":"Riverdale Youthmarket",
-    "facilitystate":"NY",
-    "facilitystreetname":"256th St & Mosholu Ave",
-    "facilityzipcode":"10471",
-    "latitude":"41",
-    "longitude":"-74"
+    ":@computed_region_92fq_4b7q": "38",
+    ":@computed_region_efsh_h5xi": "17613",
+    ":@computed_region_f5dn_yrer": "36",
+    ":@computed_region_sbqj_enih": "57",
+    ":@computed_region_yeji_bk3q": "2",
+    "accepts_ebt": true,
+    "additionalinfo": "Open year-round",
+    "address": "Union bet Driggs & N 12th St",
+    "borough": "Brooklyn",
+    "facilityname": "McCarren Park Greenmarket",
+    "latitude": "40.7192273304999",
+    "location_point": {
+      "type": "Point",
+      "coordinates": [
+        -73.9524799379,
+        40.7192273305
+      ]
+    },
+    "longitude": "-73.9524799378999",
+    "nyc_dept_of_health_cooking": false,
+    "open_year_round": true,
+    "saturday": "8am-3pm ",
+    "service_category": "Farmers Markets and Food Boxes ",
+    "service_type": "Farmers Markets",
+    "website": "https://www.grownyc.org/greenmarket",
+    "zipcode": "11222"
   },
   {
-    "facilityaddinfo":"Spend $5 in EBT and get a $2 Health Buck coupon.<br><br><b>Program Website:</b> <a  href=''http://www.grownyc.org.'' target=''_blank''>http://www.grownyc.org.</a>",
-    "facilitycity":"Queens",
-    "facilityname":"Astoria Greenmarket",
-    "facilitystate":"NY",
-    "facilitystreetname":"30th Dr",
-    "facilityzipcode":"11106",
-    "latitude":"41",
-    "longitude":"-74"
+    ":@computed_region_92fq_4b7q": "43",
+    ":@computed_region_efsh_h5xi": "10937",
+    ":@computed_region_f5dn_yrer": "8",
+    ":@computed_region_sbqj_enih": "24",
+    ":@computed_region_yeji_bk3q": "5",
+    "accepts_ebt": true,
+    "additionalinfo": "Market open dates: 7/14/2017 to 11/22/2017",
+    "address": "E 163rd St & Hunts Point Ave",
+    "borough": "Bronx",
+    "enddate": "2017-11-22T00:00:00.000",
+    "facilityname": "Harvest Home Hunts Point Market",
+    "latitude": "40.820994087",
+    "location_point": {
+      "type": "Point",
+      "coordinates": [
+        -73.8916147394,
+        40.820994087
+      ]
+    },
+    "longitude": "-73.8916147393999",
+    "nyc_dept_of_health_cooking": false,
+    "open_year_round": false,
+    "service_category": "Farmers Markets and Food Boxes ",
+    "service_type": "Farmers Markets",
+    "startdate": "2017-07-14T00:00:00.000",
+    "website": "https://www.harvesthomefm.org/",
+    "wednesday": "8am-4pm",
+    "zipcode": "10459"
   },
   {
-    "facilityaddinfo":"Spend $5 in EBT and get a $2 Health Buck coupon.<br><br><b>Program Website:</b> <a  href=''http://www.grownyc.org.'' target=''_blank''>http://www.grownyc.org.</a>",
-    "facilitycity":"Manhattan",
-    "facilityname":"St. Mark's Church Greenmarket",
-    "facilitystate":"NY",
-    "facilitystreetname":"E 10th St",
-    "facilityzipcode":"10003",
-    "latitude":"41",
-    "longitude":"-74"
+    ":@computed_region_92fq_4b7q": "17",
+    ":@computed_region_efsh_h5xi": "16866",
+    ":@computed_region_f5dn_yrer": "17",
+    ":@computed_region_sbqj_enih": "44",
+    ":@computed_region_yeji_bk3q": "2",
+    "accepts_ebt": true,
+    "additionalinfo": "Market open dates: 6/28/2017 to 11/15/2017",
+    "address": "Clarkson & Troy Aves",
+    "borough": "Brooklyn",
+    "enddate": "2017-11-15T00:00:00.000",
+    "facilityname": "Urban Oasis Farmers Market",
+    "latitude": "40.6562491753999",
+    "location_point": {
+      "type": "Point",
+      "coordinates": [
+        -73.9366848279,
+        40.6562491754
+      ]
+    },
+    "longitude": "-73.9366848278999",
+    "nyc_dept_of_health_cooking": false,
+    "open_year_round": false,
+    "service_category": "Farmers Markets and Food Boxes ",
+    "service_type": "Farmers Markets",
+    "startdate": "2017-06-28T00:00:00.000",
+    "wednesday": "2pm-5:30pm",
+    "zipcode": "11203"
   },
   {
-    "facilityaddinfo":"Spend $5 in EBT and get a $2 Health Buck coupon.<br><br><b>Program Website:</b> <a  href=''http://www.grownyc.org.'' target=''_blank''>http://www.grownyc.org.</a>",
-    "facilitycity":"Queens",
-    "facilityname":"Corona Greenmarket",
-    "facilitystate":"NY",
-    "facilitystreetname":"103rd St",
-    "facilityzipcode":"11368",
-    "latitude":"41",
-    "longitude":"-74"
+    ":@computed_region_92fq_4b7q": "46",
+    ":@computed_region_efsh_h5xi": "24669",
+    ":@computed_region_f5dn_yrer": "41",
+    ":@computed_region_sbqj_enih": "71",
+    ":@computed_region_yeji_bk3q": "3",
+    "accepts_ebt": false,
+    "additionalinfo": "Market open dates: 7/6/2017 to 11/16/2017",
+    "address": "114-02 Guy R Brewer Blvd",
+    "borough": "Queens",
+    "enddate": "2017-11-16T00:00:00.000",
+    "facilityname": "Queens Hospital Center Farmers Market II",
+    "latitude": "40.6887600482",
+    "location_point": {
+      "type": "Point",
+      "coordinates": [
+        -73.7856734233,
+        40.6887600482
+      ]
+    },
+    "longitude": "-73.7856734232999",
+    "nyc_dept_of_health_cooking": false,
+    "open_year_round": false,
+    "service_category": "Farmers Markets and Food Boxes ",
+    "service_type": "Farmers Markets",
+    "startdate": "2017-07-06T00:00:00.000",
+    "thursday": "8am-4pm",
+    "zipcode": "11434"
   },
   {
-    "facilityaddinfo":"Spend $5 in EBT and get a $2 Health Buck coupon.<br><br><b>Program Website:</b> <a  href=''http://www.grownyc.org.'' target=''_blank''>http://www.grownyc.org.</a>",
-    "facilitycity":"Brooklyn",
-    "facilityname":"Windsor Terrace - PS 154 Greenmarket",
-    "facilitystate":"NY",
-    "facilitystreetname":"11th Ave bet Sherman St & Windsor Pl",
-    "facilityzipcode":"11215",
-    "latitude":"41",
-    "longitude":"-74"
+    ":@computed_region_92fq_4b7q": "35",
+    ":@computed_region_efsh_h5xi": "10930",
+    ":@computed_region_f5dn_yrer": "50",
+    ":@computed_region_sbqj_enih": "27",
+    ":@computed_region_yeji_bk3q": "5",
+    "accepts_ebt": true,
+    "additionalinfo": "Market open dates: 7/8/2017 to 10/28/2017",
+    "address": "90 W 164th St bet Ogden & Nelson Aves",
+    "borough": "Bronx",
+    "enddate": "2017-10-28T00:00:00.000",
+    "facilityname": "Taqwa Community Farmers Market",
+    "latitude": "40.8329244943",
+    "location_point": {
+      "type": "Point",
+      "coordinates": [
+        -73.9293869588,
+        40.8329244943
+      ]
+    },
+    "longitude": "-73.9293869587999",
+    "nyc_dept_of_health_cooking": false,
+    "open_year_round": false,
+    "saturday": "10am-4pm",
+    "service_category": "Farmers Markets and Food Boxes ",
+    "service_type": "Farmers Markets",
+    "startdate": "2017-07-08T00:00:00.000",
+    "zipcode": "10452"
   }
 ]

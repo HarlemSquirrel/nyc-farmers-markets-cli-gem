@@ -1,22 +1,61 @@
 [
   {
-    "facilityaddinfo":"Additional info 1",
-    "facilitycity":"Bronx",
-    "facilityname":"Riverdale Youthmarket",
-    "facilitystate":"NY",
-    "facilitystreetname":"256th St & Mosholu Ave",
-    "facilityzipcode":"10471",
-    "latitude":"41",
-    "longitude":"-74"
+    ":@computed_region_92fq_4b7q": "36",
+    ":@computed_region_efsh_h5xi": "12427",
+    ":@computed_region_f5dn_yrer": "18",
+    ":@computed_region_sbqj_enih": "20",
+    ":@computed_region_yeji_bk3q": "4",
+    "accepts_ebt": true,
+    "additionalinfo": "Open year-round",
+    "address": "506 Lenox Ave bet 135th & 137th Sts",
+    "borough": "Manhattan",
+    "facilityname": "Harvest Home Harlem Hospital Farmers Market",
+    "friday": "8am-7pm",
+    "latitude": "40.8154380718999",
+    "location_point": {
+      "type": "Point",
+      "coordinates": [
+        -73.9399747136,
+        40.8154380719
+      ]
+    },
+    "longitude": "-73.9399747135999",
+    "nyc_dept_of_health_cooking": false,
+    "open_year_round": true,
+    "service_category": "Farmers Markets and Food Boxes ",
+    "service_type": "Farmers Markets",
+    "website": "https://www.harvesthomefm.org/",
+    "zipcode": "10037"
   },
   {
-    "facilityaddinfo":"Additional info 2",
-    "facilitycity":"Queens",
-    "facilityname":"Astoria Greenmarket",
-    "facilitystate":"NY",
-    "facilitystreetname":"30th Dr",
-    "facilityzipcode":"11106",
-    "latitude":"41",
-    "longitude":"-74"
+
+    ":@computed_region_92fq_4b7q": "25",
+    ":@computed_region_efsh_h5xi": "17214",
+    ":@computed_region_f5dn_yrer": "55",
+    ":@computed_region_sbqj_enih": "46",
+    ":@computed_region_yeji_bk3q": "2",
+    "accepts_ebt": true,
+    "additionalinfo": "Market open dates: 6/24/2017 to 10/28/2017",
+    "address": "Livonia Ave bet Powell & Junius Sts",
+    "borough": "Brooklyn",
+    "enddate": "2017-10-28T00:00:00.000",
+    "facilityname": "Isabahlia Farmers Market",
+    "latitude": "40.6636654893",
+    "location_point": {
+      "type": "Point",
+      "coordinates": [
+        -73.9014511093,
+        40.6636654893
+      ]
+    },
+    "longitude": "-73.9014511092999",
+    "nyc_dept_of_health_cooking": false,
+    "open_year_round": false,
+    "saturday": "8am-3pm ",
+    "service_category": "Farmers Markets and Food Boxes ",
+    "service_type": "Farmers Markets",
+    "startdate": "2017-06-24T00:00:00.000",
+    "website": "https://www.isabahlialoefinc.org/",
+    "zipcode": "11212"
   }
 ]

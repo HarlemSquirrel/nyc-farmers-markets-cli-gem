@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.executables << 'nyc-farmers-markets'
 
   s.add_runtime_dependency 'colorize', '~> 0.7'
-  s.add_runtime_dependency 'json', '~> 1.8'
+  s.add_runtime_dependency 'json', '~> 2.0'
   s.add_runtime_dependency 'open-uri-cached', '>= 0.0.5'
 
   s.add_development_dependency 'rspec', '>= 3.5'
